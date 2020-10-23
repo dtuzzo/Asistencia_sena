@@ -32,8 +32,6 @@ VALUES (null, tipodocumento_aprendiz, numerodocumento_aprendiz, nombre_aprendiz,
 END$$
 DELIMITER ;
 
-CALL INSERTAR_APRENDIZ ('xd', 1031, 'Julian', 'Es puto', '3216', 'misena@msiena.co', 'person@pero.c', 1, 1);
-
 DELIMITER $$
 CREATE PROCEDURE ObtenerRegistrosAprendiz(IN id_aprendiz_O INT)
 BEGIN
