@@ -42,6 +42,7 @@ $querys = $conexion -> query("SELECT id_ficha, numero_ficha FROM FICHA;");
 								<form target="_blank" method="post" action="reporte_aprendices.php">
 									<label class="form-group">Aprendices Registrados</label>
 									<select name="ficha">
+										<option class="form-group" disabled>Escoja un ficha</option>
 									<?php 
 										while ($valores = mysqli_fetch_array($query)) {
 											echo '<option class="form-group" value="'.$valores[0].'">'.$valores[1].'</option>';
@@ -55,6 +56,7 @@ $querys = $conexion -> query("SELECT id_ficha, numero_ficha FROM FICHA;");
 								<form target="_blank" method="post" action="reporte_inasistencias.php">
 									<label class="form-group">Inasistencias</label>
 									<select name="ficha2">
+										<option class="form-group" disabled>Escoja un ficha</option>
 									<?php 
 										while ($valor = mysqli_fetch_array($querys)) {
 											echo '<option class="form-group" value="'.$valor[0].'">'.$valor[1].'</option>';
