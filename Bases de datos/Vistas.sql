@@ -2,19 +2,30 @@ USE asistenciasena;
 
 /*------------------------*/
 
+CREATE VIEW VISTA_INASISTENCIAS
+AS
+SELECT numerodocumento_aprendiz, nombre_aprendiz, apellido_aprendiz, nombre_estado, correosena_aprendiz, celular_aprendiz, id_ficha_fk
+FROM APRENDIZ
+INNER JOIN ASISTENCIA
+ON id_aprendiz = id_aprendiz_fk
+INNER JOIN ESTADO
+ON id_estado = id_estado_fk
+WHERE tipo_asistencia = "Falla";
+
+SELECT * FROM VISTA_INASISTENCIAS;
+
 CREATE VIEW VISTA_APRENDIZ 
 AS
 SELECT
-aprendiz.id_aprendiz, aprendiz.tipodocumento_aprendiz, aprendiz.numerodocumento_aprendiz, 
-	aprendiz.nombre_aprendiz, aprendiz.apellido_aprendiz, aprendiz.celular_aprendiz, 
-    aprendiz.correosena_aprendiz, aprendiz.correopersonal_aprendiz, ficha.numero_ficha, estado.nombre_estado
+	id_aprendiz, tipodocumento_aprendiz, numerodocumento_aprendiz, nombre_aprendiz, apellido_aprendiz, celular_aprendiz, 
+    correosena_aprendiz, correopersonal_aprendiz, numero_ficha, nombre_estado, id_ficha_fk
 FROM APRENDIZ
 INNER JOIN ficha
 ON ficha.id_ficha = aprendiz.id_ficha_fk
-INNER JOIN estado 
+INNER JOIN estado
 ON estado.id_estado = aprendiz.id_estado_fk;
 
-
+SELECT * FROM VISTA_APRENDIZ where id_ficha_fk = 1;
 CREATE VIEW VISTA_FUNCIONARIO
 AS
 SELECT
@@ -26,13 +37,6 @@ ON rol.id_rol = funcionario.id_rol_fk
 INNER JOIN materia
 ON materia.id_materia = funcionario.id_materia_fk;
 
-
-/*-------------------------------------------------------*/
-
-CREATE TRIGGER APRENDIZRE_AI AFTER INSERT ON aprendiz FOR EACH ROW 
-INSERT INTO asistencia VALUES (NULL,NULL, NEW.nombre_aprendiz, NEW.apellido_aprendiz, NULL,NEW.id_aprendiz);
-
-/*------------------------------------------*/
 
 CREATE VIEW VISTA_ASISTENCIA
 AS
