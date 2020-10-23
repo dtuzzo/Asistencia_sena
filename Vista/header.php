@@ -56,18 +56,7 @@
           <li><a href="../Fichas/Fichas.php"><i class="bx bx-list-check"></i> <span>Asistencia</span></a></li>
           <li><a href="../Funcionario/Funcionario.php"><i class="bx bx-user"></i> <span>Funcionario</span></a></li>
           <li><a href="../Aprendiz/Aprendiz.php"><i class="bx bx-user"></i>Aprendiz</a></li>
-<<<<<<< HEAD
-          <div class="dropdown">
-            <button type="button" class="btn dropdown-toggle " data-toggle="dropdown" id="cambios">Reportes</button>
-            <div class="dropdown-menu">
-              <a href="../Reportes/reportes/reporte_aprendices.php" target="_blank">Aprendiz</a>
-              <a href="../Reportes/reportes/reporte_funcionarios.php" target="_blank">Funcionario</a>
-            </div>
-          </div>
-
-=======
           <li><a href="../Reportes/menu_reportes.php"><i class="bx bx-list-check"></i>Reportes</a></li>
->>>>>>> 6e967b2872f19be1cd98db0d137f6358d89cfb1a
         </ul>
       </nav><!-- .nav-menu -->
       <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
