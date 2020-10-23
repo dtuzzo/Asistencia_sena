@@ -19,5 +19,3 @@ $sql="CALL ACTUALIZAR_APRENDIZ('$tipodocumento_aprendiz_U','$numerodocumento_apr
 // CALL ACTUALIZAR_APRENDIZ('T.I',1001191862,'EEEEEEE','RRRRRR',1234567,'prueba@misena.edu.co','prueba@hotmail.com',1,1,1);
 echo mysqli_query($conexion,$sql);
 ?>
-
-<!-- COMENTARIO PRUEBA -->

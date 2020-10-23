@@ -8,5 +8,3 @@ $sql="CALL ELIMINAR_FUNCIONARIO('$id')";
 
 echo mysqli_query($conexion,$sql);
 ?>
-
-<!-- COMENTARIO PRUEBA -->

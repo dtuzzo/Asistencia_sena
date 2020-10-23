@@ -295,4 +295,3 @@ include '../header.php';
 		});
 	}
 </script>
-<!-- COMENTARIO PRUEBA -->

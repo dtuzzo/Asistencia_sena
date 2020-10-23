@@ -14,5 +14,3 @@ $sql="CALL ACTUALIZAR_FUNCIONARIO('$NUMERO_DE_DOCUMENTO_U','$NOMBRE_FUNCIONARIO_
 
 echo mysqli_query($conexion,$sql);
 ?>
-
-<!-- COMENTARIO PRUEBA -->

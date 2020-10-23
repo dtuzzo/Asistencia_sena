@@ -111,4 +111,3 @@ $result = mysqli_query($conexion,$sql);
         });
     } );
 </script>
-<!-- COMENTARIO PRUEBA -->

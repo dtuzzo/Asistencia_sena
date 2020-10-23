@@ -22,5 +22,3 @@ $datos = array(
 
 echo json_encode($datos);
 ?>
-
-<!-- COMENTARIO PRUEBA -->

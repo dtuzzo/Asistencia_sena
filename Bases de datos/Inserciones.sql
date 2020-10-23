@@ -57,4 +57,3 @@ INSERT INTO detalle_materia_funcionario VALUES(null,10,10);
 INSERT INTO detalle_materia_funcionario VALUES(null,11,11);
 INSERT INTO detalle_materia_funcionario VALUES(null,12,12);
 INSERT INTO detalle_materia_funcionario VALUES(null,13,13);
--- Comentario para subir archivos

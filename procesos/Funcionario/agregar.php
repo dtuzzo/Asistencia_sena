@@ -14,5 +14,3 @@ $conexion = conexion();
 echo mysqli_query($conexion,$sql);
 
 ?>
-
-<!-- COMENTARIO PRUEBA -->
