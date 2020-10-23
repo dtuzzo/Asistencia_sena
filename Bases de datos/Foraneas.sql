@@ -14,3 +14,4 @@ ALTER TABLE aprendiz ADD CONSTRAINT aprefichaFK FOREIGN KEY (id_ficha_fk) REFERE
 
 ALTER TABLE asistencia ADD CONSTRAINT asisapreFK FOREIGN KEY (id_aprendiz_fk) REFERENCES aprendiz(id_aprendiz);
 ALTER TABLE asistencia ADD CONSTRAINT asisfunciFK FOREIGN KEY (id_funcionario_fk) REFERENCES funcionario(id_funcionario);
+-- Comentario para subir archivos

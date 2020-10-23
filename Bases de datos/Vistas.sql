@@ -48,3 +48,5 @@ INNER JOIN aprendiz
 ON aprendiz.id_aprendiz = asistencia.id_aprendiz_fk
 INNER JOIN funcionario 
 ON funcionario.id_funcionario = asistencia.id_funcionario_fk;
+
+-- Comentario para subir archivos

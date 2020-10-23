@@ -68,3 +68,5 @@ tipo_asistencia VARCHAR(15) NOT NULL,
 id_aprendiz_fk INT NOT NULL,
 id_funcionario_fk INT NOT NULL
 );
+
+-- Comentario para subir archivos

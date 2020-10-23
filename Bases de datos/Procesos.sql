@@ -173,6 +173,7 @@ SELECT * FROM asistencia WHERE id_asistencia = id_asistencia_O;
 END$$
 DELIMITER ;
 
+-- Comentario para subir archivos
 
 
 

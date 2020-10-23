@@ -18,4 +18,6 @@ echo mysqli_query($conexion,$sql);
 /*CALL INSERTAR_APRENDIZ ('xd', 1031, 'Julian', 'Es puto', '3216', 'misena@msiena.co', 'person@pero.c', 1, 1)*/
 ?>
 
+<!-- COMENTARIO PRUEBA -->
+
 
