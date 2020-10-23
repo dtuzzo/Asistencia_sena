@@ -9,9 +9,7 @@ $conexion = conexion();
   $celular= $_POST['celular_funcionario'];
   $contrasena=  $_POST['clave_funcionario'];
 
-
-  $sql = "CALL INSERTAR_FUNCIONARIO ('$numero','$nombre','$apellido','$celular','$contrasena','$_REQUEST[id_rol_fk]','$_REQUEST[id_materia_fk]')";
-
+  $sql = "CALL INSERTAR_FUNCIONARIO ('$numero','$nombre','$apellido','$celular','$contrasena','$_REQUEST[id_rol_fk]')";
 
 echo mysqli_query($conexion,$sql);
 

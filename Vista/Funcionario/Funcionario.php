@@ -69,8 +69,6 @@ include '../header.php';
 						<input type="text" class="form-control input-sm" id="clave_funcionario" name="clave_funcionario" minlength="5" title="Este campo es obligatorio" required="">
 						<label>Rol</label>
 						<input type="text" class="form-control input-sm" id="id_rol_fk" name="id_rol_fk" title="Este campo es obligatorio" pattern="[1-3]" required="">
-						<label>Materia</label>
-						<input type="text" class="form-control input-sm" id="id_materia_fk" name="id_materia_fk" title="Este campo es obligatorio" pattern="" required="">
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -102,12 +100,8 @@ include '../header.php';
 						<input type="text" class="form-control input-sm" id="apellido_funcionario_U" name="apellido_funcionario_U">
 						<label>Celular</label>
 						<input type="text" class="form-control input-sm" id="celular_funcionario_U" name="celular_funcionario_U">
-						<label>Contraseña</label>
-						<input type="text" class="form-control input-sm" id="clave_funcionario_U" name="clave_funcionario_U">
 						<label>Rol</label>
 						<input type="text" class="form-control input-sm" id="id_rol_fk_U" name="id_rol_fk_U">
-						<label>Materia</label>
-						<input type="text" class="form-control input-sm" id="id_materia_fk_U" name="id_materia_fk_U" >
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -214,9 +208,7 @@ include '../header.php';
 				$('#nombre_funcionario_U').val(datos['nombre_funcionario_U']);
 				$('#apellido_funcionario_U').val(datos['apellido_funcionario_U']);
 				$('#celular_funcionario_U').val(datos['celular_funcionario_U']);
-				$('#clave_funcionario_U').val(datos['clave_funcionario_U']);
 				$('#id_rol_fk_U').val(datos['id_rol_fk_U']);
-				$('#id_materia_fk_U').val(datos['id_materia_fk_U']);
 			}
 		});
 	}

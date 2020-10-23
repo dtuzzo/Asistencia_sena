@@ -18,7 +18,6 @@ $result = mysqli_query($conexion,$sql);
                 <td>Nombre</td>
                 <td>Apellido</td>
                 <td>Celular</td>
-                <td>Contraseña</td>
                 <td>Rol</td>
                 <td>Materia</td>
                 <td>Editar</td>
@@ -37,7 +36,7 @@ $result = mysqli_query($conexion,$sql);
                 <td><?php echo $mostrar[4] ?></td>
                 <td><?php echo $mostrar[5] ?></td>
                 <td><?php echo $mostrar[6] ?></td>
-                <td><?php echo $mostrar[7] ?></td>
+                
                 <td style="text-align: center;">
                     <span class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal-editar" onclick="obtenDatos('<?php echo $mostrar[0]; ?>')" >
                         <span class="fas fa-edit"></span>

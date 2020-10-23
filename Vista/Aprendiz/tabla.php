@@ -21,8 +21,8 @@ $result = mysqli_query($conexion,$sql);
                 <td>Celular</td>
                 <td>Correo misena</td>
                 <td>Correo personal</td>
-                <td>Numero Ficha</td>
                 <td>Estado</td>
+                <td>Numero Ficha</td>
                 <td>Editar</td>
                 <td>Eliminar</td>
             </tr>

@@ -1,4 +1,4 @@
 <?php
-	$conexion = new mysqli('localhost','root','simon12345','asistenciasena')
+	$conexion = new mysqli('127.0.0.1:3307','root','','asistenciasena')
 	or die("Problemas con la conexion");
 ?>
