@@ -52,6 +52,7 @@
       <nav class="nav-menu">
         <ul>
           <li class="#"><a href="menu.php"><i class="bx bx-home"></i><span>Inicio</span></a></li>
+          <li><a href="Miperfil/perfil.php"><i class="bx bx-user-pin"></i> <span>Mi perfil</span></a></li>
           <li><a href="Fichas/Fichas.php"><i class="bx bx-list-check"></i> <span>Asistencia</span></a></li>
           <li><a href="Funcionario/Funcionario.php"><i class="bx bx-user"></i> <span>Funcionario</span></a></li>
           <li><a href="Aprendiz/Aprendiz.php"><i class="bx bx-user"></i>Aprendiz</a></li>
@@ -62,17 +63,13 @@
               <a href="Reportes/reportes/reporte_funcionarios.php" target="_blank">Funcionario</a>
             </div>
           </div>
-
-
-          
-
-
         </ul>
       </nav><!-- .nav-menu -->
       <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
-
     </div>
-  </header><!-- End Header -->
+
+  </header>
+  <!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
@@ -110,13 +107,7 @@
 
     <!-- Template Main JS File -->
     <script src="../assets/js/main.js"></script>
-
-</body>
-
-</html>
-
-</main><!-- End #main -->
-
+  </main><!-- End #main -->
 </body>
 
 </html>

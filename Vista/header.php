@@ -25,7 +25,7 @@
   <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-	<link rel="stylesheet" href="../../assets/css/style2.css">
+  <link rel="stylesheet" href="../../assets/css/style2.css">
 
 </head>
 
@@ -42,21 +42,22 @@
         <img src="../../assets/img/logoSena.png" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light">Asistencia</h1>
         <div class="social-links mt-3 text-center">
-        <a href="https://twitter.com/SENAComunica" target="_blanck" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="https://www.facebook.com/SENA" target="_blanck" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="https://www.instagram.com/senacomunica/channel/" target="_blanck" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="https://www.sena.edu.co/es-co/Paginas/default.aspx" target="_blanck" class="home"><i class="bx bx-home-alt" ></i></a>
+          <a href="https://twitter.com/SENAComunica" target="_blanck" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="https://www.facebook.com/SENA" target="_blanck" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="https://www.instagram.com/senacomunica/channel/" target="_blanck" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="https://www.sena.edu.co/es-co/Paginas/default.aspx" target="_blanck" class="home"><i class="bx bx-home-alt"></i></a>
         </div>
       </div>
 
       <nav class="nav-menu">
         <ul>
           <li class="#"><a href="../menu.php"><i class="bx bx-home"></i><span>Inicio</span></a></li>
+          <li><a href="../Miperfil/perfil.php"><i class="bx bx-user-pin"></i> <span>Mi perfil</span></a></li>
           <li><a href="../Fichas/Fichas.php"><i class="bx bx-list-check"></i> <span>Asistencia</span></a></li>
           <li><a href="../Funcionario/Funcionario.php"><i class="bx bx-user"></i> <span>Funcionario</span></a></li>
           <li><a href="../Aprendiz/Aprendiz.php"><i class="bx bx-user"></i>Aprendiz</a></li>
           <div class="dropdown">
-            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" id="cambios">Reportes</button>
+            <button type="button" class="btn dropdown-toggle " data-toggle="dropdown" id="cambios">Reportes</button>
             <div class="dropdown-menu">
               <a href="../Reportes/reportes/reporte_aprendices.php" target="_blank">Aprendiz</a>
               <a href="../Reportes/reportes/reporte_funcionarios.php" target="_blank">Funcionario</a>

@@ -107,7 +107,7 @@ include '../header.php';
 						<label>Rol</label>
 						<input type="text" class="form-control input-sm" id="id_rol_fk_U" name="id_rol_fk_U">
 						<label>Materia</label>
-						<input type="text" class="form-control input-sm" id="id_materia_fk_U" name="id_materia_fk_U" >
+						<input type="text" class="form-control input-sm" id="id_materia_fk_U" name="id_materia_fk_U">
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -144,6 +144,7 @@ include '../header.php';
 		</div>
 	</div>
 </body>
+
 </html>
 
 <!------------------------------------------ AJAX BOTON AGREGAR --------------------------------------------------->
@@ -175,7 +176,7 @@ include '../header.php';
 	$(document).ready(function() {
 		$('#btn-actualizar').click(function() {
 			datos = $('#form-actualizar').serialize();
-			
+
 			$.ajax({
 				type: "POST",
 				data: datos,
@@ -190,7 +191,7 @@ include '../header.php';
 				}
 			});
 		});
-	});	
+	});
 </script>
 
 <!------------------------------ FORMATO DATATABLE ---------------------------------------------------------------->
@@ -221,7 +222,7 @@ include '../header.php';
 		});
 	}
 
-//------------------------------- AJAX ELIMINAR ------------------------------------------------------------------->
+	//------------------------------- AJAX ELIMINAR ------------------------------------------------------------------->
 	function eliminar(IDFUNCIONARIO) {
 		alertify.confirm('Eliminar un registro', '¿Está seguro que quiere eliminar este registro?',
 			function() {
