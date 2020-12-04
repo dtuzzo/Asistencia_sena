@@ -24,6 +24,12 @@ id_materia_fk INT NOT NULL,
 id_funcionario_fk INT NOT NULL
 );
 
+CREATE TABLE detalle_ficha_funcionario( 
+id_detalle INT PRIMARY KEY auto_increment, 
+id_ficha_fk INT NOT NULL, 
+id_funcionario_fk INT NOT NULL 
+);
+
 CREATE TABLE funcionario(
 id_funcionario INT PRIMARY KEY auto_increment,
 numerodocumento_funcionario INT NOT NULL,
@@ -57,6 +63,8 @@ celular_aprendiz VARCHAR(20) NOT NULL,
 correosena_aprendiz VARCHAR(40) NOT NULL,
 correopersonal_aprendiz VARCHAR(40) NOT NULL,
 id_estado_fk INT NOT NULL,
+id_ficha_fk INT NOT NULL,
+id_materia_fk INT NOT NULL,
 id_ficha_fk INT NOT NULL
 );
 
@@ -64,7 +72,7 @@ id_ficha_fk INT NOT NULL
 CREATE TABLE asistencia(
 id_asistencia INT PRIMARY KEY auto_increment,
 fecha_registro DATETIME NOT NULL,
-tipo_asistencia VARCHAR(15) NOT NULL,
+tipo_asistencia VARCHAR(15),
 id_aprendiz_fk INT NOT NULL,
 id_funcionario_fk INT NOT NULL
 );

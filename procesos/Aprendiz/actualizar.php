@@ -3,18 +3,19 @@
 require_once "../../Conexion/conexion2/conexion.php";
 $conexion = conexion();
 
-    $ID_APRENDIZ = $_POST['ID_APRENDIZ'];
-	$TIPO_DOCUMENTO_APRENDIZ_U = $_POST['TIPO_DOCUMENTO_APRENDIZ_U'];
-	$NUM_DOCUMENTO_APRENDIZ_U = $_POST['NUM_DOCUMENTO_APRENDIZ_U'];
-	$NOMBRE_APRENDIZ_U = $_POST['NOMBRE_APRENDIZ_U'];
-	$APELLIDO_APRENDIZ_U = $_POST['APELLIDO_APRENDIZ_U'];
-	$CELULAR_APRENDIZ_U = $_POST['CELULAR_APRENDIZ_U'];
-	$CORREO_APRENDIZ_M_U = $_POST['CORREO_APRENDIZ_M_U'];
-	$CORREO_APRENDIZ_P_U = $_POST['CORREO_APRENDIZ_P_U'];
-	$NUMERO_FICHA_U= $_POST['NUMERO_FICHA_U'];
-	$ID_ESTADO_U= $_POST['ID_ESTADO_U'];
+	$tipodocumento_aprendiz_U= $_POST['tipodocumento_aprendiz_U'];
+	$numerodocumento_aprendiz_U = $_POST['numerodocumento_aprendiz_U'];
+	$nombre_aprendiz_U = $_POST['nombre_aprendiz_U'];
+	$apellido_aprendiz_U = $_POST['apellido_aprendiz_U'];
+	$celular_aprendiz_U = $_POST['celular_aprendiz_U'];
+	$correosena_aprendiz_U = $_POST['correosena_aprendiz_U'];
+	$correopersonal_aprendiz_U = $_POST['correopersonal_aprendiz_U'];
+	$id_aprendiz= $_POST['id_aprendiz'];
+	$id_estado_fk_U= $_POST['id_estado_fk_U'];
+	$id_ficha_fk_U= $_POST['id_ficha_fk_U'];
 
-$sql="CALL EDITAR_APRENDIZ ('$TIPO_DOCUMENTO_APRENDIZ_U','$NUM_DOCUMENTO_APRENDIZ_U','$NOMBRE_APRENDIZ_U','$APELLIDO_APRENDIZ_U','$CELULAR_APRENDIZ_U','$CORREO_APRENDIZ_M_U','$CORREO_APRENDIZ_P_U','$ID_ESTADO_U','$NUMERO_FICHA_U')";
+$sql="CALL ACTUALIZAR_APRENDIZ('$tipodocumento_aprendiz_U','$numerodocumento_aprendiz_U','$nombre_aprendiz_U','$apellido_aprendiz_U','$celular_aprendiz_U','$correosena_aprendiz_U','$correopersonal_aprendiz_U','$id_aprendiz','$id_estado_fk_U','$id_ficha_fk_U')";
 
+// CALL ACTUALIZAR_APRENDIZ('T.I',1001191862,'EEEEEEE','RRRRRR',1234567,'prueba@misena.edu.co','prueba@hotmail.com',1,1,1);
 echo mysqli_query($conexion,$sql);
 ?>

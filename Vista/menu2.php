@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <?php 
   session_start();
-  if(!isset($_SESSION['datos_coordinador'])){
+  if(!isset($_SESSION['datos_instructor'])){
     header("Location: ../index.php");
   }
 ?>
@@ -60,9 +60,7 @@
           <li class="#"><a href="menu.php"><i class="bx bx-home"></i><span>Inicio</span></a></li>
           <li><a href="Miperfil/perfil.php"><i class="bx bx-user-pin"></i> <span>Mi perfil</span></a></li>
           <li><a href="Fichas/Inicio.php"><i class="bx bx-list-check"></i> <span>Asistencia</span></a></li>
-          <li><a href="Funcionario/Funcionario.php"><i class="bx bx-user"></i> <span>Funcionario</span></a></li>
-          <li><a href="Aprendiz/Aprendiz.php"><i class="bx bx-user"></i>Aprendiz</a></li>
-          <li><a href="Reportes/menu_reportes.php"><i class="bx bxs-file-pdf"></i>Reportes</a></li>
+          <li><a href="Reportes/menu_reportes.php"><i class="bx bxs-file-pdf"></i>Reportes</a></li><br><br><br>
           <li><a href="../procesos/cerrar_sesion.php"><i class="bx bx-log-out-circle"></i>Cerrar Sesión</a></li>
         </ul>
       </nav><!-- .nav-menu -->
@@ -80,7 +78,6 @@
   </section><!-- End Hero -->
 
   <main id="main">
-
 
 
     <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>

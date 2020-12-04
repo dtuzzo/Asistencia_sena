@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<!--- html OWO -->
 <head>
 	<title>Login</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/style-Login.css">
@@ -39,7 +38,7 @@
 						<input type="password" class="input" name="contrasena" title="Este campo es obligatorio" required="">
 					</div>
 				</div>
-				<a href="#">¿Olvidaste tu contraseña?</a>
+				<a href="Vista/RecuperarPas/recuperar.php">¿Olvidaste tu contraseña?</a>
 				<input type="submit" class="btn" value="Ingresar" id="ingresar">
 			</form>
 		</div>

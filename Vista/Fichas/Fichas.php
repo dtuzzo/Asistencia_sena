@@ -11,6 +11,14 @@
 
 <?php
 
+require_once "../../Conexion/conexion.php"; 
+$obj = new conectar();
+$conexion = $obj->conexion();
+
+$sql = "SELECT CURDATE();";
+$result = mysqli_query($conexion,$sql);
+$row = $result -> fetch_array(MYSQLI_NUM);
+
 include '../header.php';
 
 ?>
@@ -23,14 +31,10 @@ include '../header.php';
 					<div class="card-header" style="text-align: center;">
 						Asistencia
 					</div>
-
+					<h4 style="font-family: Century Gotic;" class="mt-4 ml-4">Fecha actual: <?php echo $row[0] ?></h4>
 					<div class="card-body">
 						<hr>
 						<div id="tabla_Datatable"></div>
-					</div>
-
-					<div class="card-footer text-muted">
-						<div style="text-align: center;"> &copy; SENA. All Rights Reserved </div>
 					</div>
 				</div>
 			</div>
@@ -52,15 +56,17 @@ include '../header.php';
 						<input type="text" hidden="" id="id_asistencia" name="id_asistencia">
 						<label>Situacion</label>
 						<select class="form-control" id="tipo_asistencia_U" name="tipo_asistencia_U">
-							<option>Asistio</option>
-							<option>Retardo</option>
-							<option>Falla</option>
+							<option value="" disabled>Elija la situación</option>
+							<option value="Asistio">Asistio</option>
+							<option value="Retardo">Retardo</option>
+							<option value="Falla">Falla</option>
+							<option value="Excusado">Excusado</option>
 						</select>
 					</form>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn btn-warning" id="btn-actualizar-registro">Actualizar</button>
+					<button type="button" class="btn btn-info" id="btn-actualizar-registro">Actualizar</button>
 				</div>
 			</div>
 		</div>
@@ -99,18 +105,16 @@ include '../header.php';
 	});
 </script>
 
-<!------------------------------- AJAX OBTENER DATOS -------------------------------------------------------------->
+<!---------------------------------- OBTENER DATOS ---------------------------------------------------------------->
 <script type="text/javascript">
-	function obtenDatos(IDREGISTRO) {
+	function obtenDatos(idasistencia) {
 		$.ajax({
 			type: "POST",
-			data: "IDREGISTRO=" + IDREGISTRO,
+			data: "idasistencia=" + idasistencia,
 			url: "../../procesos/Asistencia/obtenDatos.php",
 			success: function(r) {
 				datos = jQuery.parseJSON(r);
 				$('#id_asistencia').val(datos['id_asistencia']);
-				$('#tipo_asistencia_U').val(datos['tipo_asistencia_U']);
-
 			}
 		});
 	}

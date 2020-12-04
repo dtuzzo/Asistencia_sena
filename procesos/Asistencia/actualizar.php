@@ -3,10 +3,12 @@
 require_once "../../Conexion/conexion2/conexion.php";
 $conexion = conexion();
 
-    $ID_REGISTRO = $_POST['id_asistencia'];
-	$SITUACION_U = $_POST['tipo_asistencia_U'];
+    $Id_asistencia = $_POST['id_asistencia'];
+    $tipo_asistencia = $_POST['tipo_asistencia_U'];
+    
 
-$sql="CALL ACTUALIZAR_ASISTENCIA ('$SITUACION_U','$ID_REGISTRO')";
+$sql="CALL ACTUALIZAR_ASISTENCIA ('$Id_asistencia','$tipo_asistencia')";
+
 
 echo mysqli_query($conexion,$sql);
 ?>

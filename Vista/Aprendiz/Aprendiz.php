@@ -37,9 +37,6 @@ include '../header.php';
 						<div id="tabla_Datatable"></div>
 
 					</div>
-					<div class="card-footer text-muted">
-						<div style="text-align: center;"> &copy; SENA. All Rights Reserved </div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -59,8 +56,8 @@ include '../header.php';
 					<form id="form-nuevo-aprendiz">
 						<label>Tipo de documento</label>
 						<select class="form-control" id="tipodocumento_aprendiz" name="tipodocumento_aprendiz">
-			                <option>T.I</option>
-			                <option>C.C</option>
+			                <option value="T.I">T.I</option>
+			                <option value="C.C">C.C</option>
 			            </select>
 						<label>N. documento</label>
 						<input type="text" class="form-control input-sm" id="numerodocumento_aprendiz" name="numerodocumento_aprendiz" title="Este campo es obligatorio" maxlength="10" required="">
@@ -74,12 +71,15 @@ include '../header.php';
 						<input type="email" class="form-control input-sm" id="correosena_aprendiz" name="correosena_aprendiz" title="Este campo es obligatorio" required="">
 						<label>Correo personal</label>
 						<input type="email" class="form-control input-sm" id="correopersonal_aprendiz" name="correopersonal_aprendiz" title="Este campo es obligatorio" required="">
-						<label>Ficha</label>
-						<input type="text" class="form-control input-sm" id="id_ficha_fk" name="id_ficha_fk" pattern="[0-9,.]+" title="Solo se permite escribir numeros" required="">
 						<label>Estado del aprendiz</label>
 						<select class="form-control" id="id_estado_fk" name="id_estado_fk">
 			                <option value="1">Activo</option>
 			                <option value="2">Desertado</option>
+			            </select>
+						<label>Ficha</label>
+						<!-- <input type="text" class="form-control input-sm" id="id_ficha_fk" name="id_ficha_fk" pattern="[0-9,.]+" title="Solo se permite escribir numeros" required=""> -->
+						<select class="form-control" id="id_ficha_fk" name="id_ficha_fk"  title="Solo se permite escribir numeros" required="">
+			                <option value="1">2056293</option>
 			            </select>
 					</form>
 				</div>
@@ -103,11 +103,11 @@ include '../header.php';
 				</div>
 				<div class="modal-body">
 					<form id="form-actualizar-Aprendiz">
-						<input type="text" hidden="" id="id_aprendiz_U" name="id_aprendiz_U">
+						<input type="text" hidden="" id="id_aprendiz" name="id_aprendiz">
 						<label>Tipo de documento</label>
-						<select class="form-control" id="tipodocumento_aprendiz_U" name="tipodocumento_aprendiz_U" >
-			                <option>T.I</option>
-			                <option>C.C</option>
+						<select class="form-control" id="tipodocumento_aprendiz_U" name="tipodocumento_aprendiz_U">
+			                <option value="T.I">T.I</option>
+			                <option value="C.C">C.C</option>
 			            </select>
 						<label>N. documento</label>
 						<input type="text" class="form-control input-sm" id="numerodocumento_aprendiz_U" name="numerodocumento_aprendiz_U">
@@ -121,18 +121,58 @@ include '../header.php';
 						<input type="text" class="form-control input-sm" id="correosena_aprendiz_U" name="correosena_aprendiz_U">
 						<label>Correo personal</label>
 						<input type="text" class="form-control input-sm" id="correopersonal_aprendiz_U" name="correopersonal_aprendiz_U">
-						<label>Ficha</label>
-						<input type="text" class="form-control input-sm" id="id_ficha_fk_U" name="id_ficha_fk_U" pattern="[0-9,.]+" title="Solo se permite escribir numeros" required="">
 						<label>Estado del aprendiz</label>
-						<select class="form-control" id="id_estado_fk_U" name="id_estado_fk_U">
-			                <option>Desercion</option>
-			                <option>Activo</option>
-			            </select>
+						<!-- <select class="form-control" id="id_estado_fk_U" name="id_estado_fk_U">
+			                <option value="1">Activo</option>
+			                <option value="2">Desertado</option> -->
+						<select id="id_estado_fk_U" name="id_estado_fk_U" class="form-control" required="">
+						<?php 
+						
+						require_once "../../Conexion/conexion.php"; 
+						$obj = new conectar();
+						$conexion = $obj->conexion();
+
+						$sql = "SELECT * FROM estado";
+						$result = mysqli_query($conexion,$sql);
+						
+						?>
+
+						<?php foreach($result as $opciones): ?>
+
+							<option value="<?php echo $opciones['id_estado']?>"><?php echo $opciones['nombre_estado']?></option>
+
+						<?php endforeach ?>
+
+						</select>
+
+						<label>Ficha</label>
+						<!-- <select class="form-control" id="id_ficha_fk_U" name="id_ficha_fk_U" title="Solo se permite escribir numeros" required="">
+			                <option value="1">2056293</option>
+			            </select> -->
+						<select id="id_ficha_fk_U" name="id_ficha_fk_U" class="form-control" title="Solo se permite escribir numeros" required="">
+							<?php 
+							
+							require_once "../../Conexion/conexion.php"; 
+							$obj = new conectar();
+							$conexion = $obj->conexion();
+
+							$sql = "SELECT * FROM ficha";
+							$result = mysqli_query($conexion,$sql);
+							
+							?>
+
+							<?php foreach($result as $opciones): ?>
+
+								<option value="<?php echo $opciones['id_ficha']?>"><?php echo $opciones['numero_ficha']?></option>
+
+							<?php endforeach ?>
+
+							</select>
 					</form>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn btn-warning" id="btn-actualizar-aprendiz">Actualizar</button>
+					<button type="button" class="btn btn-info" id="btn-actualizar-aprendiz">Actualizar</button>
 				</div>
 			</div>
 		</div>
@@ -222,23 +262,23 @@ include '../header.php';
 
 <!------------------------------- AJAX OBTENER DATOS -------------------------------------------------------------->
 <script type="text/javascript">
-	function obtenDatos(IDAPRENDIZ) {
+	function obtenDatos(id_aprendiz) {
 		$.ajax({
 			type: "POST",
-			data: "IDAPRENDIZ=" + IDAPRENDIZ,
+			data: "id_aprendiz=" + id_aprendiz,
 			url: "../../procesos/Aprendiz/obtenDatos.php",
 			success: function(r) {
 				datos = jQuery.parseJSON(r);
-				$('#ID_APRENDIZ').val(datos['ID_APRENDIZ']);
-				$('#TIPO_DOCUMENTO_APRENDIZ_U').val(datos['TIPO_DOCUMENTO_APRENDIZ_U']);
-				$('#NUM_DOCUMENTO_APRENDIZ_U').val(datos['NUM_DOCUMENTO_APRENDIZ_U']);
-				$('#NOMBRE_APRENDIZ_U').val(datos['NOMBRE_APRENDIZ_U']);
-				$('#APELLIDO_APRENDIZ_U').val(datos['APELLIDO_APRENDIZ_U']);
-				$('#CELULAR_APRENDIZ_U').val(datos['CELULAR_APRENDIZ_U']);
-				$('#CORREO_APRENDIZ_M_U').val(datos['CORREO_APRENDIZ_M_U']);
-				$('#CORREO_APRENDIZ_P_U').val(datos['CORREO_APRENDIZ_P_U']);
-				$('#NUMERO_FICHA_U').val(datos['NUMERO_FICHA_U']);
-				$('#ID_ESTADO_U').val(datos['ID_ESTADO_U']);
+				$('#id_aprendiz').val(datos['id_aprendiz']);
+				$('#tipodocumento_aprendiz_U').val(datos['tipodocumento_aprendiz_U']);
+				$('#numerodocumento_aprendiz_U').val(datos['numerodocumento_aprendiz_U']);
+				$('#nombre_aprendiz_U').val(datos['nombre_aprendiz_U']);
+				$('#apellido_aprendiz_U').val(datos['apellido_aprendiz_U']);
+				$('#celular_aprendiz_U').val(datos['celular_aprendiz_U']);
+				$('#correosena_aprendiz_U').val(datos['correosena_aprendiz_U']);
+				$('#correopersonal_aprendiz_U').val(datos['correopersonal_aprendiz_U']);
+				$('#id_estado_fk_U').val(datos['id_estado_fk_U']);
+				$('#id_ficha_fk_U').val(datos['id_ficha_fk_U']);
 			}
 		});
 	}
