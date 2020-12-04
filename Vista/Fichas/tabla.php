@@ -3,10 +3,15 @@
 require_once "../../Conexion/conexion.php"; 
 $obj = new conectar();
 $conexion = $obj->conexion();
+session_start();
+if (isset($_SESSION['datos_instructor'])){
+    $datos = $_SESSION['datos_instructor'];
 
-$C_NUMEROFICHA = 2056293;
+} else if (isset($_SESSION['datos_coordinador'])){
+    $datos = $_SESSION['datos_coordinador'];
+}
 
-$sql = "SELECT * FROM VISTA_ASISTENCIA";
+$sql = "SELECT * FROM VISTA_ASISTENCIA WHERE fecha_registro = CURDATE() AND id_funcionario_fk = $datos[0]";
 $result = mysqli_query($conexion,$sql);
 
 ?>
@@ -15,13 +20,12 @@ $result = mysqli_query($conexion,$sql);
     <table class="table table-hover table-condensed table-bordered" id="id_datatable">
         <thead style="background-color: #005f60; color: white; font-weigth: bold;">
             <tr>
-                <td>Id</td>
-                <td>Fecha de registro</td>
+         
+                <td>Aprendiz</td>
+                <td>Funcionario</td>
+                <td>Materia</td>
                 <td>Situacion</td>
-                <td>Nombre Aprendiz</td>
-                <td>Apellido aprendiz</td>
-                <td>Actualizar</td>
-                
+                <td>Asignar</td>
             </tr>
         </thead>
                <tbody>
@@ -29,11 +33,12 @@ $result = mysqli_query($conexion,$sql);
                 while ($mostrar = mysqli_fetch_row($result)) {
             ?>
             <tr>
-                <td><?php echo $mostrar[0] ?></td>
-                <td><?php echo $mostrar[1] ?></td>
-                <td><?php echo $mostrar[2] ?></td>
-                <td><?php echo $mostrar[3] ?></td>
-                <td><?php echo $mostrar[4] ?></td>
+           
+                <td><?php echo $mostrar[1].' '.$mostrar[2] ?></td>
+                <td><?php echo $mostrar[4].' '.$mostrar[5] ?></td>
+                <td><?php echo $mostrar[6] ?></td>
+                <td><?php echo $mostrar[7] ?></td>
+ 
                 
                 <td style="text-align: center;">
                     <span class="btn btn-success btn-sm" data-toggle="modal" data-target="#Modal-editar-fichas" onclick="obtenDatos('<?php echo $mostrar[0]; ?>')" >
@@ -53,7 +58,11 @@ $result = mysqli_query($conexion,$sql);
         $('#id_datatable').DataTable({
             //$('#id_datatable').css( 'display', 'block' );
             //"autoWidth": false
-           
+            aLengthMenu: [
+           [35, 50, 100, 200],
+           [35, 50, 100, 200]
+            ],
+       
             //scrollY:        "300px",
             scrollX:        true,
             //scrollCollapse: true,
@@ -78,7 +87,7 @@ $result = mysqli_query($conexion,$sql);
                 "sLengthMenu":     "Mostrar _MENU_ registros",
                 "sZeroRecords":    "No se encontraron resultados",
                 "sEmptyTable":     "Ningún dato disponible en esta tabla",
-                "sInfo":           "Mostrando registros del _START_ al _END_ de un total de TOTAL registros",
+                "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
                 "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
                 "sInfoFiltered":   "(filtrado de un total de MAX registros)",
                 "sInfoPostFix":    "",

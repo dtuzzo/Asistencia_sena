@@ -5,14 +5,14 @@ $conexion = conexion();
 
 $id = $_POST['idasistencia'];
 
-$sql = "CALL ObtenerRegistrosAsistencia ($id)";
+$sql = "CALL ObtenerRegistrosAsistencia($id)";
 
 $result=mysqli_query($conexion,$sql);
 
 $mostrar=mysqli_fetch_row($result);
 
 $datos = array(
-				'id_asistencia_O' => $mostrar[0],
+				'id_asistencia' => $mostrar[0],
 );
 
 echo json_encode($datos);

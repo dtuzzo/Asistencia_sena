@@ -37,9 +37,6 @@ include '../header.php';
 						<div id="tabla_Datatable"></div>
 
 					</div>
-					<div class="card-footer text-muted">
-						<div style="text-align: center;"> &copy; SENA. All Rights Reserved </div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -125,20 +122,57 @@ include '../header.php';
 						<label>Correo personal</label>
 						<input type="text" class="form-control input-sm" id="correopersonal_aprendiz_U" name="correopersonal_aprendiz_U">
 						<label>Estado del aprendiz</label>
-						<select class="form-control" id="id_estado_fk_U" name="id_estado_fk_U">
+						<!-- <select class="form-control" id="id_estado_fk_U" name="id_estado_fk_U">
 			                <option value="1">Activo</option>
-			                <option value="2">Desertado</option>
-			            </select>
+			                <option value="2">Desertado</option> -->
+						<select id="id_estado_fk_U" name="id_estado_fk_U" class="form-control" required="">
+						<?php 
+						
+						require_once "../../Conexion/conexion.php"; 
+						$obj = new conectar();
+						$conexion = $obj->conexion();
+
+						$sql = "SELECT * FROM estado";
+						$result = mysqli_query($conexion,$sql);
+						
+						?>
+
+						<?php foreach($result as $opciones): ?>
+
+							<option value="<?php echo $opciones['id_estado']?>"><?php echo $opciones['nombre_estado']?></option>
+
+						<?php endforeach ?>
+
+						</select>
+
 						<label>Ficha</label>
-						<!-- <input type="text" class="form-control input-sm" id="id_ficha_fk_U" name="id_ficha_fk_U" pattern="[0-9,.]+" title="Solo se permite escribir numeros" required=""> -->
-						<select class="form-control" id="id_ficha_fk_U" name="id_ficha_fk_U" title="Solo se permite escribir numeros" required="">
+						<!-- <select class="form-control" id="id_ficha_fk_U" name="id_ficha_fk_U" title="Solo se permite escribir numeros" required="">
 			                <option value="1">2056293</option>
-			            </select>
+			            </select> -->
+						<select id="id_ficha_fk_U" name="id_ficha_fk_U" class="form-control" title="Solo se permite escribir numeros" required="">
+							<?php 
+							
+							require_once "../../Conexion/conexion.php"; 
+							$obj = new conectar();
+							$conexion = $obj->conexion();
+
+							$sql = "SELECT * FROM ficha";
+							$result = mysqli_query($conexion,$sql);
+							
+							?>
+
+							<?php foreach($result as $opciones): ?>
+
+								<option value="<?php echo $opciones['id_ficha']?>"><?php echo $opciones['numero_ficha']?></option>
+
+							<?php endforeach ?>
+
+							</select>
 					</form>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn btn-warning" id="btn-actualizar-aprendiz">Actualizar</button>
+					<button type="button" class="btn btn-info" id="btn-actualizar-aprendiz">Actualizar</button>
 				</div>
 			</div>
 		</div>

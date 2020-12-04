@@ -13,11 +13,11 @@ $result = mysqli_query($conexion,$sql);
     <table class="table table-hover table-condensed table-bordered" id="id_datatable">
         <thead style="background-color: #005f60; color: white; font-weigth: bold;">
             <tr>
-                <td>Id</td>
-                <td>Cedula</td>
+                <td>Cédula</td>
                 <td>Nombre</td>
                 <td>Apellido</td>
                 <td>Celular</td>
+                <td>Correo</td>
                 <td>Rol</td>
                 <td>Materia</td>
                 <td>Editar</td>
@@ -29,13 +29,13 @@ $result = mysqli_query($conexion,$sql);
                 while ($mostrar = mysqli_fetch_row($result)) {
             ?>
             <tr>
-                <td><?php echo $mostrar[0] ?></td>
                 <td><?php echo $mostrar[1] ?></td>
                 <td><?php echo $mostrar[2] ?></td>
                 <td><?php echo $mostrar[3] ?></td>
                 <td><?php echo $mostrar[4] ?></td>
                 <td><?php echo $mostrar[5] ?></td>
                 <td><?php echo $mostrar[6] ?></td>
+                <td><?php echo $mostrar[7] ?></td>
                 
                 <td style="text-align: center;">
                     <span class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal-editar" onclick="obtenDatos('<?php echo $mostrar[0]; ?>')" >

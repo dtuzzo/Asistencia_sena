@@ -74,41 +74,16 @@ DELIMITER ;
 
 /*----------------------------------------------------------------------------------*/
 
--- Cambiado el día 22/10/2020
 DELIMITER $$
-CREATE OR REPLACE PROCEDURE ACTUALIZAR_FUNCIONARIO 
-(
-IN numerodocumento_funcionario_U INT, 
-IN nombre_funcionario_U VARCHAR(30), 
-IN apellido_funcionario_U VARCHAR(30), 
-IN celular_funcionario_U VARCHAR(20), 
-IN id_rol_fk_U INT,
-IN id_funcionario_U INT
-)
-BEGIN
-UPDATE funcionario SET  
-numerodocumento_funcionario =  numerodocumento_funcionario_U,
-nombre_funcionario = nombre_funcionario_U,
-apellido_funcionario = apellido_funcionario_U,
-celular_funcionario = celular_funcionario_U,
-id_rol_fk = id_rol_fk_U
-
-WHERE id_funcionario = id_funcionario_U;
-
-END$$
-DELIMITER ;
--- CALL ACTUALIZAR_FUNCIONARIO (1001191862, 'Julian', 'Ramirez', 123456789, 1, 1);
-
-DELIMITER $$
-CREATE PROCEDURE ELIMINAR_FUNCIONARIO 
+CREATE OR REPLACE PROCEDURE ELIMINAR_FUNCIONARIO 
 (IN id_funcionario_D INT)
 BEGIN
+DELETE FROM detalle_materia_funcionario WHERE id_funcionario_fk = id_funcionario_D;
 DELETE FROM funcionario WHERE id_funcionario = id_funcionario_D;
 END$$
 DELIMITER ;
 
--- Cambiado el día 22/10/2020
--- Hacer un trigger que cuando se inserte un funcionario, inserte un regitro en la tabla de muchos a muchos
+-- Cambiado el día 29/10/2020
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE INSERTAR_FUNCIONARIO 
 (
@@ -116,52 +91,29 @@ IN numerodocumento_funcionario INT,
 IN nombre_funcionario VARCHAR(30), 
 IN apellido_funcionario VARCHAR(30), 
 IN celular_funcionario VARCHAR(20), 
-IN clave_funcionario VARCHAR(30), 
+IN correo_funcionario VARCHAR(40), 
+IN clave_funcionario VARCHAR(30),
 IN id_rol_fk INT
 )
 BEGIN
-INSERT INTO funcionario (numerodocumento_funcionario, nombre_funcionario, apellido_funcionario, celular_funcionario, clave_funcionario, id_rol_fk)
-VALUES (numerodocumento_funcionario, nombre_funcionario, apellido_funcionario, celular_funcionario, clave_funcionario, id_rol_fk);
+INSERT INTO funcionario (numerodocumento_funcionario, nombre_funcionario, apellido_funcionario, celular_funcionario, correo_funcionario, clave_funcionario, id_rol_fk)
+VALUES (numerodocumento_funcionario, nombre_funcionario, apellido_funcionario, celular_funcionario, correo_funcionario, clave_funcionario, id_rol_fk);
 END$$
 DELIMITER ;
 
--- Cambiado el día 22/10/2020
+-- Cambiado el día 29/10/2020
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE ObtenerRegistrosFuncionario (IN id_funcionario_O INT)
 BEGIN
 SELECT
 funcionario.id_funcionario, funcionario.numerodocumento_funcionario, funcionario.nombre_funcionario, 
-funcionario.apellido_funcionario,funcionario.celular_funcionario, rol.id_rol
+funcionario.apellido_funcionario,funcionario.celular_funcionario, funcionario.correo_funcionario, rol.id_rol
 FROM funcionario
 INNER JOIN rol
 ON rol.id_rol = funcionario.id_rol_fk
 INNER JOIN detalle_materia_funcionario
 ON detalle_materia_funcionario.id_funcionario_fk = funcionario.id_funcionario
 WHERE id_funcionario = id_funcionario_O;
-END$$
-DELIMITER ;
-
-
-/*------------------------------------------------------------------------------------*/
-
-
-DELIMITER $$
-CREATE PROCEDURE ACTUALIZAR_ASISTENCIA 
-(IN tipo_asistencia_U VARCHAR(15), IN id_asistencia_U INT)
-BEGIN
-UPDATE asistencia SET
-	fecha_registro = CURDATE(),
-	tipo_asistencia = tipo_asistencia_U
-WHERE id_asistencia = id_asistencia_U;
-END$$
-DELIMITER ;
-
-DELIMITER $$
-CREATE PROCEDURE INSERTAR_ASISTENCIA
-(IN tipo_asistencia VARCHAR(15))
-BEGIN
-INSERT INTO asistencia (fecha_registro, tipo_asistencia)
-VALUES (fecha_registro = CURDATE(), tipo_asistencia);
 END$$
 DELIMITER ;
 
@@ -174,15 +126,72 @@ END$$
 DELIMITER ;
 
 
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE ACTUALIZAR_ASISTENCIA
+(
+IN id_asistencia_U INT,
+IN tipo_asistencia_U varchar(15)
+)
+BEGIN
+UPDATE asistencia SET
 
+tipo_asistencia = tipo_asistencia_U
 
+WHERE id_asistencia = id_asistencia_U;
 
+END$$
 
+-- **************************************************************************************
 
+-- Cambiado el día 29/10/2020
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE ACTUALIZAR_FUNCIONARIO 
+(
+IN numerodocumento_funcionario_U INT, 
+IN nombre_funcionario_U VARCHAR(30), 
+IN apellido_funcionario_U VARCHAR(30), 
+IN celular_funcionario_U VARCHAR(20), 
+IN correo_funcionario_U VARCHAR(40),
+IN id_rol_fk_U INT,
+IN id_funcionario_U INT
+)
+BEGIN
+UPDATE funcionario SET  
+numerodocumento_funcionario =  numerodocumento_funcionario_U,
+nombre_funcionario = nombre_funcionario_U,
+apellido_funcionario = apellido_funcionario_U,
+celular_funcionario = celular_funcionario_U,
+correo_funcionario = correo_funcionario_U,
+id_rol_fk = id_rol_fk_U
 
+WHERE id_funcionario = id_funcionario_U;
 
+END$$
+DELIMITER ;
 
+-- *********************************************************************************
 
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE ACTUALIZAR_PERFIL_FUNCIONARIO
+(
+IN id_funcionario_P INT,
+IN id_nombre_P VARCHAR(30), 
+IN id_apellido_P VARCHAR(30), 
+IN id_celular_P VARCHAR(20), 
+IN id_contra_P VARCHAR(100)
+)
+BEGIN
+UPDATE funcionario SET  
+
+nombre_funcionario = id_nombre_P,
+apellido_funcionario = id_apellido_P,
+celular_funcionario = id_celular_P,
+clave_funcionario = id_contra_P
+
+WHERE id_funcionario = id_funcionario_P;
+
+END$$
+DELIMITER ;
 
 
 

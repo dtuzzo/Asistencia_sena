@@ -48,36 +48,44 @@
         <a href="https://www.sena.edu.co/es-co/Paginas/default.aspx" target="_blanck" class="home"><i class="bx bx-home-alt" ></i></a>
         </div>
       </div>
+      <?php 
+        session_start();
+        if (isset($_SESSION['datos_coordinador'])){
 
+      ?>
       <nav class="nav-menu">
         <ul>
           <li class="#"><a href="../menu.php"><i class="bx bx-home"></i><span>Inicio</span></a></li>
-          <li><a href="../Fichas/Fichas.php"><i class="bx bx-list-check"></i> <span>Asistencia</span></a></li>
+          <li><a href="../Miperfil/perfil.php"><i class="bx bx-user-pin"></i> <span>Mi perfil</span></a></li>
+          <li><a href="../Fichas/Inicio.php"><i class="bx bx-list-check"></i> <span>Asistencia</span></a></li>
           <li><a href="../Funcionario/Funcionario.php"><i class="bx bx-user"></i> <span>Funcionario</span></a></li>
           <li><a href="../Aprendiz/Aprendiz.php"><i class="bx bx-user"></i>Aprendiz</a></li>
-          <div class="dropdown">
-            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" id="cambios">Reportes</button>
-            <div class="dropdown-menu">
-              <a href="../Reportes/reportes/reporte_aprendices.php" target="_blank">Aprendiz</a>
-              <a href="../Reportes/reportes/reporte_funcionarios.php" target="_blank">Funcionario</a>
-            </div>
-          </div>
-
+          <li><a href="../Reportes/menu_reportes.php"><i class="bx bxs-file-pdf"></i>Reportes</a></li>
+          <li><a href="../../procesos/cerrar_sesion.php"><i class="bx bx-log-out-circle"></i>Cerrar Sesión</a></li>
+          
         </ul>
       </nav><!-- .nav-menu -->
+      <?php 
+        } else if (isset($_SESSION['datos_instructor'])) {
+      ?>
+      <nav class="nav-menu">
+        <ul>
+          <li class="#"><a href="../menu.php"><i class="bx bx-home"></i><span>Inicio</span></a></li>
+          <li><a href="../Miperfil/perfil.php"><i class="bx bx-user-pin"></i> <span>Mi perfil</span></a></li>
+          <li><a href="../Fichas/Inicio.php"><i class="bx bx-list-check"></i> <span>Asistencia</span></a></li>
+          <li><a href="../Reportes/menu_reportes.php"><i class="bx bxs-file-pdf"></i>Reportes</a></li><br><br><br>
+          <li><a href="../../procesos/cerrar_sesion.php"><i class="bx bx-log-out-circle"></i>Cerrar Sesión</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+      <?php 
+        }
+      ?>
       <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
 
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>SENA</span></strong>
-      </div>
-    </div>
-  </footer><!-- End  Footer -->
+
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 

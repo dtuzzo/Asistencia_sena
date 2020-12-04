@@ -17,7 +17,8 @@ $datos = array(
 				'nombre_funcionario_U' => $mostrar[2],
 				'apellido_funcionario_U' => $mostrar[3],
 				'celular_funcionario_U' => $mostrar[4],
-				'id_rol_fk_U' => $mostrar[5],
+				'correo_funcionario_U' => $mostrar[5],
+				'id_rol_fk_U' => $mostrar[6],
 );
 
 echo json_encode($datos);
